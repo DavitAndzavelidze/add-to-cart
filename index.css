@@ -66,3 +66,8 @@ ul li {
   text-align: center;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
 }
+
+.emptyCart {
+  text-align: center;
+  display: none;
+}

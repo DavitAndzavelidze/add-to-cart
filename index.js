@@ -19,6 +19,7 @@ const shoppingListInDB = ref(database, "shoppingList");
 const inputFieldEl = document.getElementById("input-field");
 const addButtonEl = document.getElementById("add-button");
 const shoppingListEl = document.getElementById("shopping-list");
+const emptyCart = document.querySelector(".emptyCart");
 
 addButtonEl.addEventListener("click", function () {
   let inputValue = inputFieldEl.value;
@@ -36,18 +37,20 @@ onValue(shoppingListInDB, function (snapshot) {
 
     for (let i = 0; i < itemsArray.length; i++) {
       let currentItem = itemsArray[i];
-      let currentItemID = currentItem[0];
-      let currentItemValue = currentItem[1];
+      // let currentItemID = currentItem[0];
+      // let currentItemValue = currentItem[1];
 
       appendItemToShoppingListEl(currentItem);
     }
   } else {
-    shoppingListEl.innerHTML = "კალათა ცარიელია &#128533;";
+    emptyCart.style.display = "block";
+    shoppingListEl.innerHTML = "";
   }
 });
 
 function clearShoppingListEl() {
   shoppingListEl.innerHTML = "";
+  emptyCart.style.display = "none";
 }
 
 function clearInputFieldEl() {
